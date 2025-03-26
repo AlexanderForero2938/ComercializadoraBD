@@ -3,26 +3,26 @@ create database comercializadora;
 use comercializadora;
 
 create table permiso(
-pkIdPermiso int not null primary key,
+pkIdPermiso int not null primary key auto_increment,
 nombrePermiso varchar(20) not null unique,
 estadoPermiso varchar(10) not null
 );
 
 create table rolPermiso(
-pkIdRolPermiso int not null primary key,
+pkIdRolPermiso int not null primary key auto_increment,
 estadoRolPermiso varchar(10) not null,
 fkIdRol int not null,
 fkIdPermiso int not null
 );
 
 create table rol(
-pkIdRol int not null primary key,
+pkIdRol int not null primary key auto_increment,
 nombreRol varchar(20) not null unique,
 estadoRol varchar(10) not null
 );
 
 create table usuario(
-pkIdUsuario int not null primary key,
+pkIdUsuario int not null primary key auto_increment,
 nombreUsuario varchar(20) not null unique,
 contrasenaUsuario varchar(10) not null,
 estadoUsuario varchar(10) not null,
@@ -31,7 +31,7 @@ fkIdRol int not null
 );
 
 create table persona(
-pkIdPersona int not null primary key,
+pkIdPersona int not null primary key auto_increment,
 primerNombrePersona varchar(45) not null,
 segundoNombrePersona varchar(45) null,
 primerApellidoPersona varchar(45) not null,
@@ -42,26 +42,26 @@ fkIdTipoIdentificacion int not null
 );
 
 create table tipoIdentificacion(
-pkIdTipoIdentificacion int not null primary key,
+pkIdTipoIdentificacion int not null primary key auto_increment,
 nombreTipoIdentificacion varchar(20) not null unique,
 estadoTipoIdentificacion varchar(10) not null
 );
 
 create table empleado(
-pkIdEmpleado int not null primary key,
+pkIdEmpleado int not null primary key auto_increment,
 numeroContactoEmpleado varchar(10) not null unique,
 estadoEmpleado varchar(10) not null,
 fkIdPersona int not null unique
 );
 
 create table gerente(
-pkIdGerente int not null primary key,
+pkIdGerente int not null primary key auto_increment,
 estadoGerente varchar(10) not null,
 fkIdPersona int not null unique
 );
 
 create table factura(
-pkIdNumeroFactura int not null primary key,
+pkIdNumeroFactura int not null primary key auto_increment,
 fechaCreacionFactura date not null,
 horaCreacionFactura time not null,
 valorTotalFactura decimal(10,2) not null,
@@ -72,20 +72,20 @@ fkIdCliente int not null
 );
 
 create table metodoPago(
-pkIdMetodoPago int not null primary key,
+pkIdMetodoPago int not null primary key auto_increment,
 nombreMetodoPago varchar(20) not null unique,
 estadoMetodoPago varchar(10) not null
 );
 
 create table cliente(
-pkIdCliente int not null primary key,
+pkIdCliente int not null primary key auto_increment,
 correoElectronicoCliente varchar(50) not null unique,
 estadoCliente varchar(10) not null,
 fkIdEmpresa int not null unique
 );
 
 create table empresa(
-pkIdEmpresa int not null primary key,
+pkIdEmpresa int not null primary key auto_increment,
 NITEmpresa varchar(10) not null unique,
 nombreEmpresa varchar(50) not null unique,
 numeroContactoEmpresa varchar(10) not null unique,
@@ -94,13 +94,13 @@ estadoEmpresa varchar(10) not null
 );
 
 create table proveedor(
-pkIdProveedor int not null primary key,
+pkIdProveedor int not null primary key auto_increment,
 estadoProveedor varchar(10) not null,
 fkIdEmpresa int not null unique
 );
 
 create table detalleFactura(
-pkIdDetalleFactura int not null primary key,
+pkIdDetalleFactura int not null primary key auto_increment,
 cantidadProducto int not null,
 valorTotalDetalleFactura decimal(10,2) not null,
 estadoDetalleFactura varchar(10) not null,
@@ -109,7 +109,7 @@ fkIdProducto int not null
 );
 
 create table pedido(
-pkNumeroPedido int not null primary key,
+pkNumeroPedido int not null primary key auto_increment,
 fechaRealizoPedido date not null,
 fechaLlegadaPedido date not null,
 valorTotalPedido decimal(10,2) not null,
@@ -118,7 +118,7 @@ fkIdGerente int not null
 );
 
 create table pedidoProducto(
-pkNumeroPedidoProducto int not null primary key,
+pkNumeroPedidoProducto int not null primary key auto_increment,
 cantidadProducto int not null,
 valorUnitarioProducto decimal(10, 2) not null,
 valorGananciaProducto decimal(10, 2) not null,
@@ -129,25 +129,25 @@ fkIdProveedor int not null
 );
 
 create table nombreProducto(
-pkIdNombreProducto int not null primary key,
+pkIdNombreProducto int not null primary key auto_increment,
 nombreProducto varchar(20) not null unique,
 estadoNombreProducto varchar(10) not null
 );
 
 create table descripcionProducto(
-pkIdDescripcionProducto int not null primary key,
+pkIdDescripcionProducto int not null primary key auto_increment,
 nombreDescripcionProducto varchar(20) not null unique,
 estadoDescripcionProducto varchar(10) not null
 );
 
 create table marcaProducto(
-pkIdMarcaProducto int not null primary key,
+pkIdMarcaProducto int not null primary key auto_increment,
 nombreMarcaProducto varchar(20) not null unique,
 estadoMarcaProducto varchar(10) not null
 );
 
 create table producto(
-pkIdProducto int not null primary key,
+pkIdProducto int not null primary key auto_increment,
 cantidadStock int not null,
 precioUnitarioProductoSinIVA decimal(10,2) not null,
 precioUnitarioProductoConIVA decimal(10,2) not null,
@@ -159,13 +159,13 @@ fkIdMarcaProducto int not null
 );
 
 create table iva(
-pkIdIVA int not null primary key,
+pkIdIVA int not null primary key auto_increment,
 valorIVA int not null unique,
 estadoIVA varchar(10) not null
 );
 
 create table detalleInventario(
-pkIdDetalleInventario int not null primary key,
+pkIdDetalleInventario int not null primary key auto_increment,
 cantidadProducto int not null,
 fechaMovimimento date not null,
 estadoDetalleInventario varchar(10) not null,
@@ -175,13 +175,13 @@ fkIdMovimientoInventario int not null
 );
 
 create table movimientoInventario(
-pkIdMovimientoInventario int not null primary key,
+pkIdMovimientoInventario int not null primary key auto_increment,
 nombreMovimientoInventario varchar(10) not null unique,
 estadoMovimientoInventario varchar(10) not null
 );
 
 create table inventario(
-pkNumeroInventario int not null primary key,
+pkNumeroInventario int not null primary key auto_increment,
 fechaAbiertoInventario date not null unique,
 fechaCierreInventario date not null,
 valorTotalInventario decimal(10, 2) not null,
