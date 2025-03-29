@@ -111,8 +111,8 @@ fkIdProducto int not null
 create table pedido(
 pkNumeroPedido int not null primary key auto_increment,
 fechaRealizoPedido date not null,
-fechaLlegadaPedido date not null,
-valorTotalPedido decimal(10,2) not null,
+fechaLlegadaPedido date null,
+valorTotalPedido decimal(10,2) null,
 estadoPedido varchar(10) not null,
 fkIdGerente int not null
 );

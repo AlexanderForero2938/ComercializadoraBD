@@ -19,13 +19,22 @@ begin
     declare resultado varchar(100);
 
 	/*Verificar si existe el nombre*/
-    select count(*) into existeNombre from empresa where nombreEmpresa = upper(pNombreEmpresa);
+    select count(*) 
+    into existeNombre 
+    from empresa 
+    where nombreEmpresa = upper(pNombreEmpresa);
     
     /*Verificar si exsite el NIT*/
-    select count(*) into existeNIT from empresa where NITEmpresa = upper(pNITEmpresa);
+    select count(*) 
+    into existeNIT 
+    from empresa 
+    where NITEmpresa = upper(pNITEmpresa);
     
     /*Verificar si existe dirección*/
-    select count(*) into existeDireccion from empresa where direccionEmpresa = upper(pDireccionEmpresa);
+    select count(*) 
+    into existeDireccion 
+    from empresa 
+    where direccionEmpresa = upper(pDireccionEmpresa);
     
     if existeNombre > 0 then
 		return "Error: el nombre de la empresa ya esta registrado";
