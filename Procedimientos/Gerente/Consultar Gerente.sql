@@ -1,10 +1,10 @@
 /*Procedimiento para consultar un gerente*/
-use comercializadora
+use scliz;
 
 delimiter $$
 drop procedure if exists consultarGerente $$
 create procedure consultarGerente(
-	in pIdGerente int
+	in pNumeroIdentificacionGerente int
 )
 begin
 	select
@@ -18,6 +18,6 @@ begin
         from persona as p
         inner join tipoIdentificacion as t on t.pkIdTipoIdentificacion = p.fkIdTipoIdentificacion
         inner join gerente as g on p.pkIdPersona = g.fkIdPersona
-        where g.pkIdGerente = pIdGerente;
+        where p.numeroIdentificacionPersona = pNumeroIdentificacionGerente;
 end $$
 delimiter ;

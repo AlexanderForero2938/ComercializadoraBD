@@ -1,5 +1,5 @@
 /*Procedimiento para modificar un gerente*/
-use comercilizadora
+use scliz;
 
 delimiter $$
 drop procedure if exists modificarGerente $$

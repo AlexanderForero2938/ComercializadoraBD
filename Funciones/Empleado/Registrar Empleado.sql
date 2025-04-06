@@ -1,11 +1,13 @@
 /*Función para registrar un empleado*/
-use comercializadora;
+use scliz;
 
 delimiter $$
 drop function if exists registrarEmpleado  $$
 create function registrarEmpleado(
-    pIdPersona int,
-    pNumeroContactoEmpleado varchar(10)
+    pNumeroContactoEmpleado varchar(10),
+	pIdPersona int,
+    pIdUsuario int,
+    pIdRol int
 	)
 returns varchar(100)
 deterministic
@@ -13,12 +15,16 @@ begin
 	insert into empleado(
 			numeroContactoEmpleado,
 			estadoEmpleado,
-            fkIdPersona
+            fkIdPersona,
+            fkIdUsuario,
+            fkIdRol
 			)
 			values(
             pNumeroContactoEmpleado,
 			"ACTIVO",
-            pIdPersona
+            pIdPersona,
+            pIdUsuario,
+            pIdRol
 			);
             
 		return "Se registro el empleado exitosamente";

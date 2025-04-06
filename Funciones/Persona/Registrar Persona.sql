@@ -1,5 +1,5 @@
 /*Función para registrar una persona*/
-use comercializadora;
+use scliz;
 
 delimiter $$
 drop function if exists registrarPersona  $$

@@ -1,5 +1,5 @@
 /*Registros tipo de identificación*/
-use comercializadora;
+use scliz;
 
 insert into tipoIdentificacion(nombreTipoIdentificacion, estadoTipoIdentificacion)
 value(upper("Cedula de ciudadania"), 'ACTIVO');

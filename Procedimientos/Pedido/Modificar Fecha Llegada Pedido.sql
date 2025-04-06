@@ -1,15 +1,15 @@
 /*Procedimiento para modificar la fecha de llegada de un pedido*/
-use comercializadora;
+use scliz;
 
 delimiter $$
 drop procedure if exists modificarPedidoFechaLlegada $$
 create procedure modificarPedidoFechaLlegada(
 	in pNumeroPedido int,
-    in fechaLlegadaPedido char(10)
+    in fechaLlegadaPedido date
 )
 begin
 	update pedido
-		set pedido.fechaLlegadaPedido = str_to_date(fechaLlegadaPedido, '%Y-%m-%d')
+		set pedido.fechaLlegadaPedido = fechaLlegadaPedido
 		where pedido.pkNumeroPedido = pNumeroPedido;
 end $$
 delimiter ;

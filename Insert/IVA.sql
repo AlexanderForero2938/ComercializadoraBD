@@ -1,5 +1,5 @@
 /*Registros valor IVA*/
-use comercializadora;
+use scliz;
 
 insert into iva(valorIVA, estadoIVA)
 values

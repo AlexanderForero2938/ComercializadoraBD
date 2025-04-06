@@ -1,5 +1,5 @@
 /*Procedimiento para mostrar los nombre de los productos registrados en el sistema*/
-use comercializadora;
+use scliz;
 
 delimiter $$
 drop procedure if exists mostrarNombreProducto $$

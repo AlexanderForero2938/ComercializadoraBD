@@ -1,23 +1,32 @@
 /*Función para registrar un pedido*/
-use comercializadora;
+use scliz;
 
 delimiter $$
 drop function if exists registrarPedido $$
 create function registrarPedido(
-	pIdGerente int
+    pFechaLlegadaPedido date,
+    pvalorTotalPedido decimal(10,2),
+	pIdGerente int,
+    pIdProveedor int
 )
 returns varchar (100)
 deterministic
 begin
 	insert into pedido(
 		fechaRealizoPedido,
+        fechaLlegadaPedido,
+        valorTotalPedido,
         estadoPedido,
-        fkIdGerente
+        fkIdGerente,
+        fkIdProveedor
 		)
 		values(
         curdate(),
+        pFechaLlegadaPedido,
+        pvalorTotalPedido,
         "ESPERA",
-        pIdGerente
+        pIdGerente,
+        pIdProveedor
         );
 
         return "Se creo el pedido";

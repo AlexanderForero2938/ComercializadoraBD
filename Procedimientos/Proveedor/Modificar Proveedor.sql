@@ -1,5 +1,5 @@
 /*Procedimiento para modificar un proveedor*/
-use comercializadora
+use scliz;
 
 delimiter $$
 drop procedure if exists modificarProveedor $$

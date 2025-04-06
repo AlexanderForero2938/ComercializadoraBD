@@ -1,5 +1,5 @@
 /*Procedimiento para modificar el estado de un pedido*/
-use comercializadora;
+use scliz;
 
 delimiter $$
 drop procedure if exists modificarPedidoEstado $$

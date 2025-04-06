@@ -1,5 +1,5 @@
 /*Función para registrar una empresa*/
-use comercializadora;
+use scliz;
 
 delimiter $$
 drop function if exists registrarEmpresa $$

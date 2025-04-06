@@ -1,21 +1,27 @@
 /*Función para registrar un gerente*/
-use comercializadora;
+use scliz;
 
 delimiter $$
 drop function if exists registrarGerente  $$
 create function registrarGerente(
-    pIdPersona int
+    pIdPersona int,
+    pIdUsuario int,
+    pIdRol int
 	)
 returns varchar(100)
 deterministic
 begin
 	insert into gerente(
 			estadoGerente,
-            fkIdPersona
+            fkIdPersona,
+            fkIdUsuario,
+            fkIdRol
 			)
 			values(
 			"ACTIVO",
-            pIdPersona
+            pIdPersona,
+            pIdUsuario,
+            pIdRol
 			);
             
 		return "Se registro el gerente exitosamente";

@@ -1,5 +1,5 @@
 /*Función para registrar un proveedor*/
-use comercializadora;
+use scliz;
 
 delimiter $$
 drop function if exists registrarProveedor $$

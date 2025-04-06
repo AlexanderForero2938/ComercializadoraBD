@@ -1,5 +1,5 @@
 /*Procedimiento para consultar un proveedor*/
-use comercializadora;
+use scliz;
 
 delimiter $$
 drop procedure if exists consultarProveedor $$

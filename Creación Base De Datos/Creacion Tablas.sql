@@ -1,6 +1,6 @@
-create database comercializadora;
+create database SCLiz;
 
-use comercializadora;
+use SCLiz;
 
 create table permiso(
 pkIdPermiso int not null primary key auto_increment,
@@ -25,9 +25,7 @@ create table usuario(
 pkIdUsuario int not null primary key auto_increment,
 nombreUsuario varchar(20) not null unique,
 contrasenaUsuario varchar(10) not null,
-estadoUsuario varchar(10) not null,
-fkIdPersona int not null unique,
-fkIdRol int not null
+estadoUsuario varchar(10) not null
 );
 
 create table persona(
@@ -51,13 +49,17 @@ create table empleado(
 pkIdEmpleado int not null primary key auto_increment,
 numeroContactoEmpleado varchar(10) not null unique,
 estadoEmpleado varchar(10) not null,
-fkIdPersona int not null unique
+fkIdPersona int not null unique,
+fkIdUsuario int null unique,
+fkIdRol int not null
 );
 
 create table gerente(
 pkIdGerente int not null primary key auto_increment,
 estadoGerente varchar(10) not null,
-fkIdPersona int not null unique
+fkIdPersona int not null unique,
+fkIdUsuario int null unique,
+fkIdRol int not null
 );
 
 create table factura(
@@ -114,18 +116,18 @@ fechaRealizoPedido date not null,
 fechaLlegadaPedido date null,
 valorTotalPedido decimal(10,2) null,
 estadoPedido varchar(10) not null,
-fkIdGerente int not null
+fkIdGerente int not null,
+fkIdProveedor int not null
 );
 
-create table pedidoProducto(
-pkNumeroPedidoProducto int not null primary key auto_increment,
+create table detallePedido(
+pkIdDetallePedido int not null primary key auto_increment,
 cantidadProducto int not null,
 valorUnitarioProducto decimal(10, 2) not null,
 valorGananciaProducto decimal(10, 2) not null,
-estadoPedidoProducto varchar(10) not null,
+estadoDetallePedido varchar(10) not null,
 fkNumeroPedido int not null,
-fkIdProducto int not null,
-fkIdProveedor int not null
+fkIdProducto int not null
 );
 
 create table nombreProducto(

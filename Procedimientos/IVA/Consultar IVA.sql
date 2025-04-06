@@ -1,5 +1,5 @@
 /*Procedimiento para consultar el IVA*/
-use comercializadora;
+use scliz;
 
 delimiter $$
 drop procedure if exists consultarIVA $$

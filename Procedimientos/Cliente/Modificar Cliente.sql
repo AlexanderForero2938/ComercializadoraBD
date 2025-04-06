@@ -1,5 +1,5 @@
 /*Procedimiento para modificar un cliente*/
-use comercializadora
+use scliz;
 
 delimiter $$
 drop procedure if exists modificarCliente $$

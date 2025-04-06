@@ -1,5 +1,5 @@
 /*Registros descripciones de los productos*/
-use comercializadora;
+use scliz;
 
 insert into descripcionProducto(nombreDescripcionProducto, estadoDescripcionProducto)
 values

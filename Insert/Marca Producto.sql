@@ -1,5 +1,5 @@
 /*Registros marcas de productos*/
-use comercializadora;
+use scliz;
 
 insert into marcaProducto(nombreMarcaProducto, estadoMarcaProducto)
 values

@@ -1,18 +1,22 @@
-use comercializadora;
+use scliz;
 
 alter table rolPermiso add constraint fkPermiso foreign key(fkIdPermiso) references permiso(pkIdPermiso);
 
 alter table rolPermiso add constraint fkRol foreign key(fkIdRol) references rol(pkIdRol);
 
-alter table usuario add constraint fkUsuarioPersona foreign key(fkIdPersona) references persona(pkIdPersona);
-
-alter table usuario add constraint fkUsuarioRol foreign key(fkIdRol) references rol(pkIdRol);
-
 alter table persona add constraint fkTipoIdentificacion foreign key(fkIdTipoIdentificacion) references tipoIdentificacion(pkIdTipoIdentificacion);
 
 alter table empleado add constraint fkEmpleadoPersona foreign key(fkIdPersona) references persona(pkIdPersona);
 
-alter table empleado add constraint fkGerentePersona foreign key(fkIdPersona) references persona(pkIdPersona);
+alter table empleado add constraint fkEmpleadoRol foreign key(fkIdRol) references rol(pkIdRol);
+
+alter table empleado add constraint fkEmpleadoUsuario foreign key(fkIdUsuario) references usuario(pkIdUsuario);
+
+alter table gerente add constraint fkGerentePersona foreign key(fkIdPersona) references persona(pkIdPersona);
+
+alter table gerente add constraint fkGerenteRol foreign key(fkIdRol) references rol(pkIdRol);
+
+alter table gerente add constraint fkGerenteUsuario foreign key(fkIdUsuario) references usuario(pkIdUsuario);
 
 alter table factura add constraint fkFacturaEmpleado foreign key(fkIdEmpleado) references empleado(pkIdEmpleado);
 
@@ -30,11 +34,11 @@ alter table detalleFactura add constraint fkDetalleFacturaProducto foreign key(f
 
 alter table pedido add constraint fkPedidoGerente foreign key(fkIdGerente) references gerente(pkIdGerente);
 
-alter table pedidoProducto add constraint fkNumeroPedido foreign key(fkNumeroPedido) references pedido(pkNumeroPedido);
+alter table pedido add constraint fkPedidoProveedor foreign key(fkIdProveedor) references proveedor(pkIdProveedor);
 
-alter table pedidoProducto add constraint fkProducto foreign key(fkIdProducto) references producto(pkIdProducto);
+alter table detallePedido add constraint fkDetallePedidoProducto foreign key(fkIdProducto) references producto(pkIdProducto);
 
-alter table pedidoProducto add constraint fkProveedor foreign key(fkIdProveedor) references proveedor(pkIdProveedor);
+alter table detallePedido add constraint fkDetallePedidoNumeroPedido foreign key(fkNumeroPedido) references pedido(pkNumeroPedido);
 
 alter table producto add constraint fkIVA foreign key(fkIdIVA) references iva(pkIdIVA);
 
