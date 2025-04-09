@@ -13,6 +13,7 @@ begin
         e.nombreEmpresa,
         e.numeroContactoEmpresa,
         e.direccionEmpresa,
+        p.pkIdProveedor,
         p.estadoProveedor
 	from empresa as e
 	inner join proveedor p on e.pkIdEmpresa = p.fkIdEmpresa

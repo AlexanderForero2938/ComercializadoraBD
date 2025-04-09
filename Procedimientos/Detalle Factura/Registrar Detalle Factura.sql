@@ -1,28 +1,37 @@
 /*Procedimiento para registrar un detalle factura*/
-use scilz;
+use scliz;
 
 delimiter $$
 drop procedure if exists registrarDetalleFactura $$
 create procedure registrarDetalleFactura(
-	in pCantidadProductoDetalleFactura int,
-    in pValorTotalDetalleFactura decimal(10,2),
-    in pIdNumeroFactura int,
-    in pIdProducto int
+	in pNumeroFactura int,
+    in pIdProducto int,
+    in pCantidadProductoDetalleFactura int,
+    in pPrecioUnitarioProductoSinIVA decimal(10,2),
+    in pValorIVAProductoDetalleFactura int,
+    in pValorTotalDetalleFacturaIVA decimal(10,2),
+    in pValorIVA int
 )
 begin
 	insert into detalleFactura(
 			cantidadProductoDetalleFactura,
-            valorTotalDetalleFactura,
+			precioUnitarioProductoSinIVA,
+            valorIVAProductoDetalleFactura,
+            valorTotalDetalleFacturaIVa,
+            valorIVA,
             estadoDetalleFactura,
-            fkIdNumeroFactura,
+            fkNumeroFactura,
             fkIdProducto
             )
             values(
             pCantidadProductoDetalleFactura,
-            pValorTotalDetalleFactura,
-            'ACTIVO',
-            pIdNumeroFactura,
+            pPrecioUnitarioProductoSinIVA,
+            pValorIVAProductoDetalleFactura,
+            pValorTotalDetalleFacturaIVA,
+            pValorIVA,
+            "REGISTRADO",
+            pNumeroFactura,
             pIdProducto
             );
-end$$
+end $$
 delimiter ;

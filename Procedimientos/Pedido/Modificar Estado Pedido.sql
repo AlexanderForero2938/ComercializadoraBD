@@ -2,14 +2,13 @@
 use scliz;
 
 delimiter $$
-drop procedure if exists modificarPedidoEstado $$
-create procedure modificarPedidoEstado(
-	in pNumeroPedido int,
-    in pNuevoEstado varchar(10)
+drop procedure if exists modificarEstadoPedido $$
+create procedure modificarEstadoPedido(
+	in pNumeroPedido int
 )
 begin
 	update pedido
-		set pedido.estadoPedido = upper(pNuevoEstado)
+		set pedido.estadoPedido = "ENTREGADO"
 		where pedido.pkNumeroPedido = pNumeroPedido;
 end $$
 delimiter ;

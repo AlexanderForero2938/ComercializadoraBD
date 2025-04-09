@@ -2,7 +2,7 @@
 use scliz;
 
 delimiter $$
-drop function if exists registrarCliente  $$
+drop function if exists registrarCliente;  $$
 create function registrarCliente(
 	pCorreoElectronicoCliente varchar(50),
 	pFkIdEmpresa int
@@ -16,7 +16,7 @@ begin
             fkIdEmpresa
             )
 			values(
-            upper(pCorreoElectronicoCliente),
+            pCorreoElectronicoCliente,
             "ACTIVO",
             pFkIdEmpresa
             );

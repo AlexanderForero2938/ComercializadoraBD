@@ -28,7 +28,7 @@ alter table cliente add constraint fkClienteEmpresa foreign key(fkIdEmpresa) ref
 
 alter table proveedor add constraint fkProveedorEmpresa foreign key(fkIdEmpresa) references empresa(pkIdEmpresa);
 
-alter table detalleFactura add constraint fkFactura foreign key(fkNumeroFactura) references factura(pkIdNumeroFactura);
+alter table detalleFactura add constraint fkFactura foreign key(fkNumeroFactura) references factura(pkNumeroFactura);
 
 alter table detalleFactura add constraint fkDetalleFacturaProducto foreign key(fkIdProducto) references producto(pkIdProducto);
 

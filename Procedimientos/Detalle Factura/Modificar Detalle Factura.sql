@@ -2,16 +2,18 @@
 use scliz;
 
 delimiter $$
-drop procedure if exists modificarDetalleFactura $$
+drop procedure if exists modificarDetalleFactura$$
 create procedure modificarDetalleFactura(
 	in pIdDetalleFactura int,
     in pNuevaCantidadProductoDetalleFactura int,
-    in pNuevoValorTotalDetalleFactura decimal(10,2)
-)
+    in pNuevoValorIVAProductoDetalleFactura decimal(10,2),
+    in pNuevoValorTotalDetalleFacturaIVA decimal(10,2)
+    )
 begin
 	update detalleFactura
 		set detalleFactura.cantidadProductoDetalleFactura = pNuevaCantidadProductoDetalleFactura,
-			detalleFactura.valorTotalDetalleFactura = pNuevoValorTotalDetalleFactura
+			detalleFactura.valorIVAProductoDetalleFactura = pNuevoValorIVAProductoDetalleFactura,
+            detalleFactura.valorTotalDetalleFacturaIVA = pNuevoValorTotalDetalleFacturaIVA
 		where detalleFactura.pkIdDetalleFactura = pIdDetalleFactura;
-end$$
+end $$
 delimiter ;

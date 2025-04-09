@@ -4,7 +4,8 @@ use SCLiz;
 
 create table permiso(
 pkIdPermiso int not null primary key auto_increment,
-nombrePermiso varchar(20) not null unique,
+codigoPermiso varchar(100) not null unique,
+nombrePermiso varchar(100) not null unique,
 estadoPermiso varchar(10) not null
 );
 
@@ -63,7 +64,7 @@ fkIdRol int not null
 );
 
 create table factura(
-pkIdNumeroFactura int not null primary key auto_increment,
+pkNumeroFactura int not null primary key auto_increment,
 fechaCreacionFactura date not null,
 horaCreacionFactura time not null,
 valorTotalFactura decimal(10,2) not null,
@@ -103,8 +104,10 @@ fkIdEmpresa int not null unique
 
 create table detalleFactura(
 pkIdDetalleFactura int not null primary key auto_increment,
-cantidadProducto int not null,
-valorTotalDetalleFactura decimal(10,2) not null,
+cantidadProductoDetalleFactura int not null,
+valorTotalDetalleIVA decimal(10,2) not null,
+valorDetalleFacturaSinIVA decimal(10,2) not null,
+valorProductoDetalleFactura decimal(10,2) not null,
 estadoDetalleFactura varchar(10) not null,
 fkNumeroFactura int not null,
 fkIdProducto int not null
@@ -122,9 +125,12 @@ fkIdProveedor int not null
 
 create table detallePedido(
 pkIdDetallePedido int not null primary key auto_increment,
-cantidadProducto int not null,
-valorUnitarioProducto decimal(10, 2) not null,
-valorGananciaProducto decimal(10, 2) not null,
+cantidadProductoDetallePedido int not null,
+valorTotalDetallePedido decimal(10, 2) not null,
+valorGananciaDetallePedido decimal(10, 2) not null,
+valorProductoDetallePedido decimal(10,2) not null,
+valorGananciaProductoDetallePedido decimal(10,2) not null,
+valorProductoProveedor decimal(10,2) not null,
 estadoDetallePedido varchar(10) not null,
 fkNumeroPedido int not null,
 fkIdProducto int not null
@@ -169,7 +175,9 @@ estadoIVA varchar(10) not null
 create table detalleInventario(
 pkIdDetalleInventario int not null primary key auto_increment,
 cantidadProducto int not null,
-fechaMovimimento date not null,
+fechaMovimientoDetalleInventario date not null,
+valorDetalleInventario decimal(10,2) not null,
+valorUnitarioProductoDetalleInventario decimal(10,2) not null,
 estadoDetalleInventario varchar(10) not null,
 fkIdProducto int not null,
 fkNumeroInventario int not null,

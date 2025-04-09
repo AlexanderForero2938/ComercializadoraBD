@@ -4,17 +4,17 @@ use scliz;
 delimiter $$
 drop function if exists registrarPedido $$
 create function registrarPedido(
-    pFechaLlegadaPedido date,
-    pvalorTotalPedido decimal(10,2),
 	pIdGerente int,
     pIdProveedor int
 )
-returns varchar (100)
+returns varchar(100)
 deterministic
 begin
+	declare nuevoId int;
+    declare resultado varchar(100);
+    
 	insert into pedido(
 		fechaRealizoPedido,
-        fechaLlegadaPedido,
         valorTotalPedido,
         estadoPedido,
         fkIdGerente,
@@ -22,13 +22,17 @@ begin
 		)
 		values(
         curdate(),
-        pFechaLlegadaPedido,
-        pvalorTotalPedido,
+        0,
         "ESPERA",
         pIdGerente,
         pIdProveedor
         );
-
-        return "Se creo el pedido";
+			
+        /*Obtener el id recien insertado*/
+        set nuevoId = last_insert_id();
+            
+        /*Retornar el id insertado*/
+        set resultado = nuevoId;
+        return resultado;        
 end$$
 delimiter ;

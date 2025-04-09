@@ -18,7 +18,7 @@ begin
     where nombreRol = upper(pNombreRol);
     
     if existeNombre > 0 then
-		return "Error: ese nombre de usuario ya se encuentra registrado";
+		return "Error: ese rol ya se encuentra registrado";
 	else
 		insert into rol(
 				nombreRol,
@@ -29,7 +29,7 @@ begin
                 "ACTIVO"
                 );
             
-		return "Se registro el usuario exitosamente";
+		return "Se registro el rol exitosamente";
 	end if;
 end$$
 delimiter ;

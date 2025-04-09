@@ -11,7 +11,7 @@ create function registrarProducto(
     pIdDescripcionProducto int,
     pIdMarcaProducto int
 )
-returns int
+returns varchar(100)
 deterministic
 begin
 	declare nuevoId int;
@@ -36,11 +36,7 @@ begin
             pIdDescripcionProducto,
             pIdMarcaProducto
             );
-			
-            /*Obtener el id recien insertado*/
-            set nuevoId = last_insert_id();
-            
-            /*Retornar el id insertado*/
-            return nuevoId;
+
+            return "Se registro exitosamente el producto en el sistema";
 end $$
 delimiter ;

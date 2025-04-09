@@ -13,6 +13,7 @@ begin
         e.nombreEmpresa,
         e.numeroContactoEmpresa,
         e.direccionEmpresa,
+        c.pkIdCliente,
         c.correoElectronicoCliente,
         c.estadoCliente
 	from empresa as e

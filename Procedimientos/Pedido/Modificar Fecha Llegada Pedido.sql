@@ -2,14 +2,14 @@
 use scliz;
 
 delimiter $$
-drop procedure if exists modificarPedidoFechaLlegada $$
-create procedure modificarPedidoFechaLlegada(
+drop procedure if exists modificarFechaLlegadaPedido $$
+create procedure modificarFechaLlegadaPedido(
 	in pNumeroPedido int,
-    in fechaLlegadaPedido date
+    in pNuevaFechaLlegadaPedido date
 )
 begin
 	update pedido
-		set pedido.fechaLlegadaPedido = fechaLlegadaPedido
+		set pedido.fechaLlegadaPedido = pNuevaFechaLlegadaPedido
 		where pedido.pkNumeroPedido = pNumeroPedido;
 end $$
 delimiter ;
